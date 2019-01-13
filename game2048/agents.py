@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class Agent:
     '''Agent Base.'''
 
@@ -45,4 +44,34 @@ class ExpectiMaxAgent(Agent):
 
     def step(self):
         direction = self.search_func(self.game.board)
+        return direction
+
+
+class LearnAgent(Agent):
+       
+    def __init__(self, game, display=None):
+        self.game = game
+        self.display = display
+        from game2048.load import model_0, model_64, model_128, model_256, model_512
+        self.model_0 = model_0
+        self.model_64 = model_64
+        self.model_128 = model_128
+        self.model_256 = model_256
+        self.model_512 = model_512
+
+    def predict(self):
+        if self.game.score <= 32:
+            result = self.model_0.predict(np.expand_dims(self.game.ohe_board, axis=0))
+        elif 32< self.game.score <= 64:
+            result = self.model_64.predict(np.expand_dims(self.game.ohe_board, axis=0))
+        elif 64< self.game.score <= 128:
+            result = self.model_128.predict(np.expand_dims(self.game.ohe_board, axis=0)) 
+        elif 128< self.game.score <= 256:
+            result = self.model_256.predict(np.expand_dims(self.game.ohe_board, axis=0))
+        elif self.game.score >= 512:
+            result = self.model_512.predict(np.expand_dims(self.game.ohe_board, axis=0))    
+        return result
+
+    def step(self):
+        direction = self.predict().argmax()
         return direction
