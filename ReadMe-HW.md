@@ -17,17 +17,15 @@
 
     models.py:深度神经网络模型定义
 	
-	load.py:一次性导入五个模型的权重并保存
+    load.py:一次性导入五个模型的权重并保存
 	
-    agents.py:LearnAgent的定义，
-	          predict()函数使用训练好的深度学习模型决策移动方向
+    agents.py:LearnAgent的定义，predict()函数使用训练好的深度学习模型决策移动方向
 			  
-	getdata.py:包括将board转换为One-hot Board棋盘的函数
-	           和从csv文件里读取训练数据的函数
+    getdata.py:包括将board转换为One-hot Board棋盘的函数和从csv文件里读取训练数据的函数
 			   
-	continue_train.py:训练模型的函数
+    continue_train.py:训练模型的函数
 	
-	game.py:增加了将board转换为One-hot Board棋盘的函数
+    game.py:增加了将board转换为One-hot Board棋盘的函数
 	
 
   
