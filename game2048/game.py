@@ -72,6 +72,22 @@ class Game:
             print("Disable to rewrite `board` manually.")
 
     @property
+    def ohe_board(self):
+        OUT_SHAPE = (4,4)
+        CAND = 11
+        map_table = {2**i:i for i in range(1,11)}
+        map_table[0] = 0
+        ret = np.zeros(shape=OUT_SHAPE + (CAND,),dtype=int)
+        for r in range(OUT_SHAPE[0]):
+            for c in range(OUT_SHAPE[1]):
+                if self.board[r,c]<2048:
+                    ret[r, c, map_table[self.board[r,c]]] = 1
+                else:
+                    ret[r, c, map_table[1024]] = 1
+        return ret
+
+
+    @property
     def score(self):
         return int(self.board.max())
 
