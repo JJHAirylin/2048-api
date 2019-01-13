@@ -11,12 +11,12 @@ def single_run(size, score_to_win, AgentClass, **kwargs):
 
 if __name__ == '__main__':
     GAME_SIZE = 4
-    SCORE_TO_WIN = 2048
+    SCORE_TO_WIN = 1024
     N_TESTS = 50
 
     '''====================
     Use your own agent here.'''
-    from game2048.agents import ExpectiMaxAgent as TestAgent
+    from game2048.agents import LearnAgent as TestAgent
     '''===================='''
 
     scores = []
@@ -26,3 +26,4 @@ if __name__ == '__main__':
         scores.append(score)
 
     print("Average scores: @%s times" % N_TESTS, sum(scores) / len(scores))
+    print(scores)
