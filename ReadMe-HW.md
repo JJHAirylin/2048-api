@@ -12,6 +12,8 @@
     model_get512_2.h5：256分<=game.score<512分时使用的模型权重（version:2.0)
 	
     model_get1024.h5：512分<=game.score<1024分时使用的模型权重
+    
+    evaluate.py:测试模型性能
 	
 ## game2048/
 
