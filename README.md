@@ -52,3 +52,4 @@ The code is under Apache-2.0 License.
 
 # For EE369 students from SJTU only
 Please read [here](EE369.md).
+My completed version please refer to [README_Homework](README_Homework.md)
